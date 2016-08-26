@@ -72,7 +72,7 @@ bool_t getElement(listType list, unsigned position, void * element)
 	return retVal;
 }
 
-bool_t removeElement(listType list, unsigned position, void * element)
+bool_t removeElement(listType list, unsigned position)
 {
 	bool_t retVal = FALSE;
 	unsigned i;
@@ -103,15 +103,15 @@ bool_t removeElement(listType list, unsigned position, void * element)
 	return retVal;
 }
 
-void destroyList(listType * list)
+void destroyList(listType list)
 {
 	while (removeElement(list, 0));
-	free(*list);
+	free(list);
 	list = NULL;
 }
 
 
-unsigned listSize(listType * list)
+unsigned listSize(listType list)
 {
 	return sizeof(nodeType)*list->elementCount;
 }
